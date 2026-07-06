@@ -10,6 +10,7 @@ export type Pregunta = {
   texto: string;
   tipo: "TEXTO" | "NUMERO" | "BOOLEANO" | "OPCION";
   puntaje: number;
+  requerida?: boolean;
   opciones?: string[];
 };
 
@@ -18,6 +19,8 @@ export type PartidoActivo = {
   nombre_evento: string;
   estado: EstadoPartido;
   esta_abierto: boolean;
+  recibe_respuestas?: boolean;
+  esta_cerrado?: boolean;
   puede_mostrar_resultados: boolean;
   equipo1: Equipo;
   equipo2: Equipo;
@@ -35,6 +38,18 @@ export type ParticipacionResponse = {
   ok: boolean;
   token?: string;
   mensaje: string;
+};
+
+export type MiParticipacionResponse = {
+  ok: boolean;
+  mensaje?: string;
+  participante?: {
+    nombre: string;
+    token: string;
+    partido_id: number;
+    puntaje_total: number;
+  };
+  respuestas?: Record<string, string>;
 };
 
 export type TablaItem = {

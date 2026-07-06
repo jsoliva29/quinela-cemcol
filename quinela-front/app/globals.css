@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050505;
+  --foreground: #f5f5f5;
+  --cat-yellow: #ffcd11;
+  --cat-yellow-hover: #e8b900;
+  --cat-surface: #111111;
+  --cat-border: #2c2c2c;
 }
 
 @theme inline {
@@ -12,13 +16,16 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   margin: 0;
+  background:
+    radial-gradient(circle at top, rgb(255 205 17 / 8%), transparent 28rem),
+    var(--background);
+  color: var(--foreground);
+  color-scheme: dark;
+}
+
+::selection {
+  background: var(--cat-yellow);
+  color: #050505;
 }
